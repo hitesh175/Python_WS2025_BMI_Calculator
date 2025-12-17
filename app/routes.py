@@ -32,10 +32,9 @@ def calculate() -> str:
 
         bmi, category, color = calculate_bmi(weight, height)
 
-        # ✅ DEFINE scale_bmi FIRST
+        
         scale_bmi = max(10, min(bmi, 40))
 
-        # ✅ THEN calculate indicator position
         indicator_position = ((scale_bmi - 10) / (40 - 10)) * 100
 
         return render_template(
