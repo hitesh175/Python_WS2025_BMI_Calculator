@@ -40,22 +40,7 @@ Technology Stack
 - Version Control: Git & GitHub
 
 
-
-Project Structure
-bmi-calculator
-├── app
-│ ├── static
-│ │ └── style.css
-│ ├── templates
-│ │ └── index.html
-│ ├── routes.py
-│ ├── services.py
-│ └── init.py
-├── Dockerfile
-├── requirements.txt
-├── run.py
-├── demo_video.mp4
-└── README.md
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/0b04bdb3-4217-405b-9e2e-b56d713a28e5" />
 
 
 
