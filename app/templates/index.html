@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>BMI Calculator</h1>
+
+    <form method="POST" action="/calculate">
+        <label>Weight (kg)</label>
+        <input type="text" name="weight" required>
+
+        <label>Height (cm or m)</label>
+        <input type="text" name="height" required>
+
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+
+    {% if bmi is not none %}
+<div class="result-card">
+
+    <div class="bmi-value" style="color: {{ color }}">
+        {{ bmi }}
+    </div>
+    <div class="bmi-label">Your BMI</div>
+
+    <div class="bmi-category" style="background-color: {{ color }}">
+        {{ category }}
+    </div>
+
+    <!-- Ideal BMI -->
+    <p class="ideal-range">
+        Ideal BMI Range: <strong>18.5 – 24.9</strong>
+    </p>
+
+    <!-- BMI Scale -->
+    <div class="bmi-scale">
+    <div class="scale under">Under</div>
+    <div class="scale normal">Normal</div>
+    <div class="scale over">Over</div>
+    <div class="scale obese">Obese</div>
+
+    <div class="indicator"></div>
+
+        <!-- Indicator -->
+        <div class="indicator" style="left: {{ indicator_position }}%;"></div>
+    </div>
+
+    <!-- Recalculate -->
+    <a href="/" class="recalc">Calculate Again</a>
+
+</div>
+{% endif %}
+
+
+
+</div>
+
+</body>
+</html>
