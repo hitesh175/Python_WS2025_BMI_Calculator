@@ -59,9 +59,11 @@ Open in Browser: http://127.0.0.1:5000
 
 
 
-Option 2: Run Using Docker (Recommended)
-docker build -t bmi-app .
-docker run -p 5000:5000 bmi-app
+Option 2: 
+Run Using Docker (Recommended)
+
+-docker build -t bmi-app .
+-docker run -p 5000:5000 bmi-app
 
 Open in browser:
 
