@@ -11,10 +11,8 @@
     <h1>BMI Calculator</h1>
 
     <form method="POST" action="/calculate">
-
-        <!-- Unit selection MUST be inside form -->
         <label>Unit System</label>
-        <select name="unit">
+        <select name="unit" class="styled-select">
             <option value="metric">Metric (kg, cm)</option>
             <option value="imperial">Imperial (lb, inch)</option>
         </select>
@@ -34,7 +32,6 @@
 
     {% if bmi is not none %}
     <div class="result-card">
-
         <div class="bmi-value" style="color: {{ color }}">
             {{ bmi }}
         </div>
@@ -50,26 +47,26 @@
             Ideal BMI Range: <strong>18.5 – 24.9</strong>
         </p>
 
-        <!-- BMI Scale -->
         <div class="bmi-scale">
             <div class="scale under">Under</div>
             <div class="scale normal">Normal</div>
             <div class="scale over">Over</div>
             <div class="scale obese">Obese</div>
 
-            <!-- Indicator (ONLY ONE) -->
             <div class="indicator" style="left: {{ indicator_position }}%;"></div>
         </div>
 
         <a href="/" class="recalc">Calculate Again</a>
 
-        <!-- PDF Download -->
         <a href="/download-pdf">
             <button type="button">Download BMI Report (PDF)</button>
         </a>
-
     </div>
     {% endif %}
+
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="/history">View Calculation History</a>
+    </div>
 </div>
 
 </body>

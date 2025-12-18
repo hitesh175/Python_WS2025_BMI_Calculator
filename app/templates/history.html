@@ -1,28 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Specific adjustments for the history table layout */
+        .container.history-page {
+            width: 90%;
+            max-width: 600px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            color: #333;
+        }
+
+        th {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+    </style>
 </head>
 <body>
-<h1>BMI History</h1>
 
-<table border="1">
-    <tr>
-        <th>Weight</th>
-        <th>Height</th>
-        <th>BMI</th>
-        <th>Category</th>
-    </tr>
+<div class="container history-page">
+    <h1>BMI History</h1>
 
-    {% for item in history %}
-    <tr>
-        <td>{{ item.weight }}</td>
-        <td>{{ item.height }}</td>
-        <td>{{ item.bmi }}</td>
-        <td>{{ item.category }}</td>
-    </tr>
-    {% endfor %}
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Weight</th>
+                <th>Height</th>
+                <th>BMI</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in history | reverse %}
+            <tr>
+                <td>{{ item.weight }}</td>
+                <td>{{ item.height }}</td>
+                <td>{{ item.bmi }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No history available yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/" class="back-btn">← Back to Calculator</a>
+</div>
 
 </body>
 </html>
