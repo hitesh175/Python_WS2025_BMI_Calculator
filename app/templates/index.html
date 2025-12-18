@@ -11,57 +11,65 @@
     <h1>BMI Calculator</h1>
 
     <form method="POST" action="/calculate">
-        <label>Weight (kg)</label>
-        <input type="text" name="weight" required>
 
-        <label>Height (cm or m)</label>
-        <input type="text" name="height" required>
+        <!-- Unit selection MUST be inside form -->
+        <label>Unit System</label>
+        <select name="unit">
+            <option value="metric">Metric (kg, cm)</option>
+            <option value="imperial">Imperial (lb, inch)</option>
+        </select>
+
+        <label>Weight</label>
+        <input type="text" name="weight" placeholder="e.g. 70" required>
+
+        <label>Height</label>
+        <input type="text" name="height" placeholder="e.g. 175 or 1.75" required>
 
         <button type="submit">Calculate BMI</button>
     </form>
 
     {% if error %}
-    <p class="error">{{ error }}</p>
-{% endif %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
 
     {% if bmi is not none %}
-<div class="result-card">
+    <div class="result-card">
 
-    <div class="bmi-value" style="color: {{ color }}">
-        {{ bmi }}
+        <div class="bmi-value" style="color: {{ color }}">
+            {{ bmi }}
+        </div>
+        <div class="bmi-label">Your BMI</div>
+
+        <div class="bmi-category" style="background-color: {{ color }}">
+            {{ category }}
+        </div>
+
+        <p><strong>Health Advice:</strong> {{ recommendation }}</p>
+
+        <p class="ideal-range">
+            Ideal BMI Range: <strong>18.5 – 24.9</strong>
+        </p>
+
+        <!-- BMI Scale -->
+        <div class="bmi-scale">
+            <div class="scale under">Under</div>
+            <div class="scale normal">Normal</div>
+            <div class="scale over">Over</div>
+            <div class="scale obese">Obese</div>
+
+            <!-- Indicator (ONLY ONE) -->
+            <div class="indicator" style="left: {{ indicator_position }}%;"></div>
+        </div>
+
+        <a href="/" class="recalc">Calculate Again</a>
+
+        <!-- PDF Download -->
+        <a href="/download-pdf">
+            <button type="button">Download BMI Report (PDF)</button>
+        </a>
+
     </div>
-    <div class="bmi-label">Your BMI</div>
-
-    <div class="bmi-category" style="background-color: {{ color }}">
-        {{ category }}
-    </div>
-
-    <!-- Ideal BMI -->
-    <p class="ideal-range">
-        Ideal BMI Range: <strong>18.5 – 24.9</strong>
-    </p>
-
-    <!-- BMI Scale -->
-    <div class="bmi-scale">
-    <div class="scale under">Under</div>
-    <div class="scale normal">Normal</div>
-    <div class="scale over">Over</div>
-    <div class="scale obese">Obese</div>
-
-    <div class="indicator"></div>
-
-        <!-- Indicator -->
-        <div class="indicator" style="left: {{ indicator_position }}%;"></div>
-    </div>
-
-    <!-- Recalculate -->
-    <a href="/" class="recalc">Calculate Again</a>
-
-</div>
-{% endif %}
-
-
-
+    {% endif %}
 </div>
 
 </body>

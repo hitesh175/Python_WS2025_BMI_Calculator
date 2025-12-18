@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI History</title>
+</head>
+<body>
+<h1>BMI History</h1>
+
+<table border="1">
+    <tr>
+        <th>Weight</th>
+        <th>Height</th>
+        <th>BMI</th>
+        <th>Category</th>
+    </tr>
+
+    {% for item in history %}
+    <tr>
+        <td>{{ item.weight }}</td>
+        <td>{{ item.height }}</td>
+        <td>{{ item.bmi }}</td>
+        <td>{{ item.category }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
