@@ -1,6 +1,4 @@
-/* =====================
-   GLOBAL STYLES
-===================== */
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -13,9 +11,6 @@ body {
     background-attachment: fixed;
 }
 
-/* =====================
-   CONTAINER
-===================== */
 .container {
     width: 360px;
     margin: 100px auto;
@@ -33,9 +28,6 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* =====================
-   HEADINGS & LABELS
-===================== */
 h1 {
     text-align: center;
     margin-bottom: 25px;
@@ -47,9 +39,6 @@ label {
     font-weight: bold;
 }
 
-/* =====================
-   INPUT FIELDS
-===================== */
 input {
     width: 100%;
     padding: 12px;
@@ -71,9 +60,6 @@ input:focus {
         0 0 0 2px rgba(0, 123, 255, 0.4);
 }
 
-/* =====================
-   STYLED SELECT (IMPORTANT)
-===================== */
 .styled-select {
     width: 100%;
     padding: 12px 42px 12px 14px;
@@ -114,9 +100,6 @@ input:focus {
         0 0 0 2px rgba(0, 123, 255, 0.45);
 }
 
-/* =====================
-   BUTTONS
-===================== */
 button {
     margin-top: 25px;
     width: 100%;
@@ -139,16 +122,10 @@ button:hover {
     box-shadow: 0 10px 30px rgba(0, 114, 255, 0.6);
 }
 
-/* =====================
-   FORM
-===================== */
 form {
     margin-bottom: 25px;
 }
 
-/* =====================
-   RESULT CARD
-===================== */
 .result-card {
     margin-top: 30px;
     padding: 22px;
@@ -186,9 +163,6 @@ form {
     font-weight: bold;
 }
 
-/* =====================
-   MESSAGES
-===================== */
 .error {
     color: #ff4d4d;
     margin-top: 15px;
@@ -201,9 +175,6 @@ form {
     font-weight: bold;
 }
 
-/* =====================
-   ANIMATIONS
-===================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -215,9 +186,6 @@ form {
     }
 }
 
-/* =====================
-   BMI SCALE
-===================== */
 .bmi-scale {
     position: relative;
     display: flex;
@@ -262,9 +230,6 @@ form {
     background: rgba(255, 255, 255, 0.25);
 }
 
-/* =====================
-   RE-CALCULATE LINK
-===================== */
 .recalc {
     display: inline-block;
     margin-top: 22px;
@@ -311,9 +276,6 @@ form {
     border-radius: 8px;
 }
 
-/* =====================
-   HISTORY TABLE STYLES
-===================== */
 .history-container {
     width: 90%; /* Tables need more horizontal space than the form */
     max-width: 600px;
