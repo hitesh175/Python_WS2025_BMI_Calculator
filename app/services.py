@@ -17,12 +17,15 @@ def calculate_bmi(weight: float, height: float) -> Tuple[float, str, str]:
     if bmi < 18.5:
         category = "Underweight"
         color = "blue"
+        
     elif bmi < 25:
         category = "Normal weight"
         color = "green"
+        
     elif bmi < 30:
         category = "Overweight"
         color = "orange"
+        
     else:
         category = "Obese"
         color = "red"
