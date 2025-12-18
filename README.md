@@ -5,7 +5,7 @@ This project is a BMI (Body Mass Index) Calculator Web Application developed as 
 Python Web Services – Winter Semester 2025 module.
 
 The application allows users to enter their weight and height, and validates the input.
-calculates BMI, and displays the result along with a health category and visual colour indicators.
+calculates BMI and displays the result, along with a corresponding health category and visual colour indicators.
 
 The project demonstrates:
 - Frontend and backend integration using Flask
@@ -17,7 +17,7 @@ The project demonstrates:
 
 
 Problem Statement & Motivation
-Body Mass Index is a commonly used indicator to assess health risks related to body weight.
+The Body Mass Index (BMI) is a commonly used indicator to assess health risks associated with body weight.
 This application provides a simple and user-friendly way to calculate BMI while preventing
 invalid inputs and offering clear visual feedback.
 
@@ -30,6 +30,8 @@ Features
 - REST API endpoint for programmatic access
 - Dockerized deployment for portability
 - Clean, modular code following PEP-8 standards
+- View Calculation History
+- Download BMI Report.
 
 
 
