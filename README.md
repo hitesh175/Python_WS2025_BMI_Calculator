@@ -1,95 +1,64 @@
-BMI Calculator – Flask Web Application
+# BMI Calculator — Flask Web Application
 
-Project Overview
-This project is a BMI (Body Mass Index) Calculator Web Application developed as part of the
-Python Web Services – Winter Semester 2025 module.
+A Python Web Services course project for Winter Semester 2025, developed by **Hitesh Kanagala Rajendra Prasad** and **Vinay Somala**.
 
-The application allows users to enter their weight and height, and validates the input.
-calculates BMI and displays the result, along with a corresponding health category and visual colour indicators.
+The application accepts height and weight, validates inputs, calculates BMI, and displays a category with visual feedback.
 
-The project demonstrates:
-- Frontend and backend integration using Flask
-- Clean code and separation of concerns
-- REST API usage
-- Docker containerization
-- Collaborative development using GitHub
+## Features
 
+- Flask web interface with HTML/CSS templates.
+- Input validation and calculation service.
+- Form-based calculation using metric or imperial input.
+- Calculation history and downloadable reports in the root application.
+- Docker configuration.
 
+## Run locally
 
-Problem Statement & Motivation
-The Body Mass Index (BMI) is a commonly used indicator to assess health risks associated with body weight.
-This application provides a simple and user-friendly way to calculate BMI while preventing
-invalid inputs and offering clear visual feedback.
+From the repository root, create and activate an environment:
 
-
-
-Features
-- Web-based user interface for BMI calculation
-- Input validation with error messages
-- BMI category classification with colour indicators
-- REST API endpoint for programmatic access
-- Dockerized deployment for portability
-- Clean, modular code following PEP-8 standards
-- View Calculation History
-- Download BMI Report.
-
-
-
-Technology Stack
-- Backend: Python 3.11, Flask
-- Frontend: HTML, CSS
-- Containerization: Docker
-- Version Control: Git & GitHub
-
-
-<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/0b04bdb3-4217-405b-9e2e-b56d713a28e5" />
-
-
-
-How to Run the Application
-
-Option 1: Run Locally (Without Docker)
-
-```bash
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 python run.py
 ```
 
-Open in Browser: http://127.0.0.1:5000
+On macOS/Linux, activate with `source .venv/bin/activate`. Open the address printed by Flask, normally `http://127.0.0.1:5000`.
 
+## Run with Docker
 
+```bash
+docker build -t bmi-app .
+docker run --rm -p 5000:5000 bmi-app
+```
 
-Option 2: 
-Run Using Docker (Recommended)
+Open `http://localhost:5000`.
 
-->docker build -t bmi-app .
-->docker run -p 5000:5000 bmi-app
+## Project guide
 
-Open in browser:
+| Path | Purpose |
+| --- | --- |
+| [app/routes.py](app/routes.py) | Web routes and request handling |
+| [app/services.py](app/services.py) | Calculation logic |
+| [app/templates](app/templates/) | Web pages |
+| [app/static](app/static/) | Styles and images |
+| [run.py](run.py) | Application entry point |
+| [Dockerfile](Dockerfile) | Container configuration |
+| [Demo video](BMI-WEB_APP_Demo_video.mp4) | Recorded walkthrough |
 
-http://localhost:5000
+The repository also retains a nested copy under `BMI Calculator/`. Use the root application for the history/report features described here.
 
+## Routes and data storage
 
+| Route | Purpose |
+| --- | --- |
+| `GET /` | Calculation form |
+| `POST /calculate` | Validate form values and calculate BMI |
+| `GET /history` | Show recorded calculations |
+| `GET /download-pdf` | Download the latest calculation report |
 
-Demo Video
+History and the latest result use shared in-memory application variables. They reset when the server restarts and are not separated into user accounts. Run this version as a local demonstration with sample data.
 
-A demo video showing the running application, features, and Docker execution is included
-in this repository:
+## Scope
 
-📁 demo_video.mp4
-
-
-
-Contributors
-Hitesh Kanagala Rajendra Prasad
-Vinay Somala
-
-Conclusion
-This project demonstrates the development of a complete Python web application
-with clean architecture, validation, API support, and containerised deployment.
-It follows best practices taught in the course and reflects collaborative development.
-
-
-
+This is an educational calculation tool. Displayed categories use the application's programmed thresholds; a numerical result does not provide an individual medical assessment.
